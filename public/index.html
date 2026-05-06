@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>សាលាហ្សំលាយប្រកាស - Swimming School Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-swimmer"></i>
+            <span>សាលាហ្សំលាយប្រកាស</span>
+        </div>
+        <nav class="navbar">
+            <a href="#packages">កញ្ចប់</a>
+            <a href="#comparison">ប្រៀបធៀប</a>
+            <a href="#coaches">គ្រូ</a>
+            <a href="#schedule">ពេលវេលា</a>
+            <a href="#programs">មេរៀន</a>
+            <a href="#finance">គណនា</a>
+            <a href="brochure.html">សន្លឹកព័ត៌មាន</a>
+            <a href="#partners">ដៃគូ</a>
+            <a href="#tips">គន្លឹះ</a>
+            <a href="#team">ក្រុមការងារ</a>
+            <a href="admin.html" class="btn-admin">គ្រប់គ្រង</a>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ស្វាគមន៍មកមិនលោកបង្គោលទឹក</h1>
+            <p>ផ្តល់ឱ្យយើងពេលវេលាដ៏អស្ចារ្យនិងសុវត្ថិភាព</p>
+            <button class="btn-primary" onclick="scrollToSection('packages')">ចាប់ផ្តើមឥឡូវនេះ</button>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section">
+        <div class="container">
+            <h2>កញ្ចប់របស់យើង</h2>
+            <div class="packages-grid" id="packages-container">
+                <!-- Packages will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="section bg-light">
+        <div class="container">
+            <h2>ប្រៀបធៀបកញ្ចប់</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>លក្ខណៈ</th>
+                        <th>ដើម</th>
+                        <th>ស្តង់ដារ</th>
+                        <th>ឌីមប្រតិបត្តិ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ក្រុមម៉ោង/សប្តាහ</td>
+                        <td>១</td>
+                        <td>២</td>
+                        <td>៤</td>
+                    </tr>
+                    <tr>
+                        <td>រយៈពេល</td>
+                        <td>១ ខែ</td>
+                        <td>៣ ខែ</td>
+                        <td>៦ ខែ</td>
+                    </tr>
+                    <tr>
+                        <td>ត្រូវការលក្ខណ</td>
+                        <td>☑</td>
+                        <td>☑</td>
+                        <td>☑</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section id="coaches" class="section">
+        <div class="container">
+            <h2>គ្រូរបស់យើង</h2>
+            <div class="coaches-grid" id="coaches-container">
+                <!-- Coaches will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section bg-light">
+        <div class="container">
+            <h2>កាលវិភាគមេរៀន</h2>
+            <div class="schedule-container">
+                <div class="schedule-table" id="schedule-container">
+                    <!-- Schedule will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section">
+        <div class="container">
+            <h2>មេរៀនរបស់យើង</h2>
+            <div class="programs-grid" id="programs-container">
+                <!-- Programs will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Finance Section -->
+    <section id="finance" class="section bg-light">
+        <div class="container">
+            <h2>គណនាគ្រាប់</h2>
+            <div class="finance-info">
+                <div class="finance-card">
+                    <h3>វិធីសាស្ត្រគង់ប្រាក់</h3>
+                    <ul>
+                        <li>ប្រាក់សាច់ឧស្សាហ៍</li>
+                        <li>ផ្ទេរតាមរយៈធនាគារ</li>
+                        <li>អនឡាញលទ្ធផល</li>
+                        <li>ូនស្តុល្ល</li>
+                    </ul>
+                </div>
+                <div class="finance-card">
+                    <h3>ក្រាប់ដែលមាន</h3>
+                    <div id="finance-stats">
+                        <!-- Stats will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="section">
+        <div class="container">
+            <h2>ដៃគូយើង</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>ក្រុមហ៊ុនក្រិត</h3>
+                    <p>សហការជាមួយការអនុវត្ត</p>
+                </div>
+                <div class="partner-card">
+                    <h3>សមាគមក្នុងស្រុក</h3>
+                    <p>ការគាំទ្ន និងការដោះស្រាយ</p>
+                </div>
+                <div class="partner-card">
+                    <h3>ឈានទៅលេខថាប់</h3>
+                    <p>ជិតឹកទឹកវិបចនដល់</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="section bg-light">
+        <div class="container">
+            <h2>គន្លឹះលូតលាស់</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-water"></i>
+                    <h3>ស្វើលលើកម្មវិធី</h3>
+                    <p>រៀលចេញលើលេខចង់ដងរយៈវាលមដ្ឋានដល់</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>ឯកចាប់ផ្តើម</h3>
+                    <p>រំដោះសម្រាប់ល្អក្នុងកម្មវិធីលូតលាស់</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>សុវត្ថិភាព</h3>
+                    <p>លក្ខណៈអាថ៌កំបាំងលើលេខលើក ឧស្សាហ៍</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2>ក្រុមការងារ</h2>
+            <div class="team-grid" id="team-container">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>សម្ន័ដល់</h3>
+                    <p>នាយក</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>មីនំ</h3>
+                    <p>ប្រឹក្សាយោបល់</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>ស្មាច់វេទ</h3>
+                    <p>ប្រមាណប័ន្ន</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 សាលាហ្សំលាយប្រកាស - Swimming School Management. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

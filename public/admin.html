@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>គ្រប់គ្រងលក្ខណៈ - Swimming School Management</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>គ្រប់គ្រង</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" onclick="showTab('dashboard')">
+                    <i class="fas fa-dashboard"></i>
+                    <span>ផ្ទាំងលេខ</span>
+                </a>
+                <a href="#students" class="menu-item" onclick="showTab('students')">
+                    <i class="fas fa-users"></i>
+                    <span>សិស្ស</span>
+                </a>
+                <a href="#coaches" class="menu-item" onclick="showTab('coaches')">
+                    <i class="fas fa-person-chalkboard"></i>
+                    <span>គ្រូ</span>
+                </a>
+                <a href="#classes" class="menu-item" onclick="showTab('classes')">
+                    <i class="fas fa-calendar"></i>
+                    <span>ក្រុម</span>
+                </a>
+                <a href="#attendance" class="menu-item" onclick="showTab('attendance')">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>ឈានទៅលេខ</span>
+                </a>
+                <a href="#payments" class="menu-item" onclick="showTab('payments')">
+                    <i class="fas fa-credit-card"></i>
+                    <span>គណនា</span>
+                </a>
+                <a href="#programs" class="menu-item" onclick="showTab('programs')">
+                    <i class="fas fa-book"></i>
+                    <span>មេរៀន</span>
+                </a>
+                <a href="index.html" class="menu-item" style="margin-top: 2rem;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>ត្រឡប់ទៅដើម</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1>សាលាហ្សំលាយប្រកាស - ផ្ទាំងគ្រប់គ្រង</h1>
+                <div class="header-actions">
+                    <button class="btn-action" onclick="logout()">ចាកចេញ</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Tab -->
+            <section id="dashboard" class="tab-content active">
+                <h2>ផ្ទាំងលេខ</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-content">
+                            <h3>សិស្សសរុប</h3>
+                            <p class="stat-value" id="total-students">០</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-person-chalkboard"></i></div>
+                        <div class="stat-content">
+                            <h3>គ្រូសរុប</h3>
+                            <p class="stat-value" id="total-coaches">០</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+                        <div class="stat-content">
+                            <h3>ក្រុមសរុប</h3>
+                            <p class="stat-value" id="total-classes">០</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-content">
+                            <h3>ប្រាក់ខែនេះ</h3>
+                            <p class="stat-value" id="total-revenue">$០</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Students Tab -->
+            <section id="students" class="tab-content">
+                <div class="section-header">
+                    <h2>គ្រប់គ្រងសិស្ស</h2>
+                    <button class="btn-primary" onclick="showAddStudentForm()">បន្ថែមសិស្ស</button>
+                </div>
+
+                <form id="student-form" class="form-modal" style="display: none;">
+                    <div class="form-group">
+                        <label>ឈ្មោះ</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>អាយុ</label>
+                        <input type="number" id="student-age" required>
+                    </div>
+                    <div class="form-group">
+                        <label>អ៊ីមែល</label>
+                        <input type="email" id="student-email">
+                    </div>
+                    <div class="form-group">
+                        <label>ទូរស័ព្ទ</label>
+                        <input type="tel" id="student-phone">
+                    </div>
+                    <div class="form-group">
+                        <label>ឈ្មោះឪពុក/មាតា</label>
+                        <input type="text" id="parent-name">
+                    </div>
+                    <div class="form-group">
+                        <label>ទូរស័ព្ទឪពុក/មាតា</label>
+                        <input type="tel" id="parent-phone">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">រក្សាទុក</button>
+                        <button type="button" class="btn-secondary" onclick="hideForm('student-form')">បោះបង់</button>
+                    </div>
+                </form>
+
+                <div class="table-container">
+                    <table id="students-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ឈ្មោះ</th>
+                                <th>អាយុ</th>
+                                <th>អ៊ីមែល</th>
+                                <th>ទូរស័ព្ទ</th>
+                                <th>ឈ្មោះឪពុក</th>
+                                <th>សកម្មភាព</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Coaches Tab -->
+            <section id="coaches" class="tab-content">
+                <div class="section-header">
+                    <h2>គ្រប់គ្រងគ្រូ</h2>
+                    <button class="btn-primary" onclick="showAddCoachForm()">បន្ថែមគ្រូ</button>
+                </div>
+
+                <form id="coach-form" class="form-modal" style="display: none;">
+                    <div class="form-group">
+                        <label>ឈ្មោះ</label>
+                        <input type="text" id="coach-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ឯកទេស</label>
+                        <input type="text" id="coach-specialization">
+                    </div>
+                    <div class="form-group">
+                        <label>ឆ្នាំបទពិសោធន៍</label>
+                        <input type="number" id="coach-experience">
+                    </div>
+                    <div class="form-group">
+                        <label>អ៊ីមែល</label>
+                        <input type="email" id="coach-email">
+                    </div>
+                    <div class="form-group">
+                        <label>ទូរស័ព្ទ</label>
+                        <input type="tel" id="coach-phone">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">រក្សាទុក</button>
+                        <button type="button" class="btn-secondary" onclick="hideForm('coach-form')">បោះបង់</button>
+                    </div>
+                </form>
+
+                <div class="table-container">
+                    <table id="coaches-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ឈ្មោះ</th>
+                                <th>ឯកទេស</th>
+                                <th>ឆ្នាំបទពិសោធន៍</th>
+                                <th>អ៊ីមែល</th>
+                                <th>ទូរស័ព្ទ</th>
+                                <th>សកម្មភាព</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coaches-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Classes Tab -->
+            <section id="classes" class="tab-content">
+                <div class="section-header">
+                    <h2>គ្រប់គ្រងក្រុម</h2>
+                </div>
+                <div class="table-container">
+                    <table id="classes-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ឈ្មោះក្រុម</th>
+                                <th>គ្រូ</th>
+                                <th>កម្រិត</th>
+                                <th>ពេលវេលា</th>
+                                <th>ថ្ងៃ</th>
+                                <th>សិស្ស</th>
+                            </tr>
+                        </thead>
+                        <tbody id="classes-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Attendance Tab -->
+            <section id="attendance" class="tab-content">
+                <h2>ឈានទៅលេខ</h2>
+                <p>ផ្នែកឈានទៅលេខនឹងក្នុងការលម្អិតលម្អる</p>
+            </section>
+
+            <!-- Payments Tab -->
+            <section id="payments" class="tab-content">
+                <div class="section-header">
+                    <h2>គ្រប់គ្រងលុយ</h2>
+                </div>
+                <div class="table-container">
+                    <table id="payments-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ឈ្មោះសិស្ស</th>
+                                <th>ចំនួនលុយ</th>
+                                <th>ប្រភេទលុយ</th>
+                                <th>ថ្ងៃលុយ</th>
+                                <th>ស្ថានភាព</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payments-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Programs Tab -->
+            <section id="programs" class="tab-content">
+                <h2>គ្រប់គ្រងមេរៀន</h2>
+                <p>ផ្នែកមេរៀននឹងក្នុងការលម្អិតលម្អる</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
